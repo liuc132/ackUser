@@ -1,0 +1,6 @@
+framework module AACustomDatePicker {
+  umbrella header "AACustomDatePicker-umbrella.h"
+
+  export *
+  module * { export * }
+}

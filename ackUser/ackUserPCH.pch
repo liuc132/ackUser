@@ -1,0 +1,111 @@
+//
+//  ackUserPCH.pch
+//  ackUser
+//
+//  Created by 爱车客研发部 on 2016/11/10.
+//  Copyright © 2016年 爱车客研发部. All rights reserved.
+//
+
+#ifdef __OBJC__
+#import "FMDB.h"
+
+#endif
+
+#ifndef ackUserPCH_pch
+#define ackUserPCH_pch
+
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+#define MAS_SHORTHAND
+
+#define SCREEN_WIDTH            [[UIScreen mainScreen]bounds].size.width
+#define SCREEN_HEIGHT           [[UIScreen mainScreen]bounds].size.height
+#define ISixW                   375
+#define IFiveSW                 320
+#define IFiveSH                 568
+
+#define CarInformationDrivingLicenseImageViewTag            200
+#define AddCarInformationDrivingLicenseImageViewTag         201
+
+#define CarInformationCarBodyFrontImageViewTag              202
+#define AddCarInformationCarBodyFrontImageViewTag           203
+
+#define TokenExpired                                        401
+#define NoExistSuccess                                      2
+//#define RequestSuccess                                      1
+#define RequestSuccess                                      0
+#define RequestFail                                         -1
+
+//获取的验证码类型 发送短信，类型{1：注册，2：登录，3：找回密码，4:修改手机，5：注销车辆}
+#define RegisterType                                        @"1"
+#define SignInType                                          @"2"
+#define FindBackPasswordType                                @"3"
+#define ChangePhoneType                                     @"4"
+#define LogOffType                                          @"5"
+
+#define UILABEL_LINE_SPACE 6
+
+//油卡状态 卡状态 (0 未激活 1已激活 2 废弃 3已挂失)
+#define UnactiveOilCard                                     0
+#define ActiveOilCard                                       1
+#define AbandonOilCard                                      2
+#define ReportLossOilCard                                   3
+
+//爱车币充值类型 充值类型 1:油卡充值， 2:爱车币充值
+#define OilCardChargeType                                   1
+#define ACKAccountChargeType                                2
+
+
+
+
+//#define Debug
+
+///////////////////接口访问的主机地址////////////////////
+#ifdef Debug
+#define MainApiURL              @"http://192.168.1.197:8083"//@"http://192.168.1.36" //@"http://192.168.1.66:80"//@"http://192.168.1.198:8080"
+#else
+#define MainApiURL              @"http://www.gitlab.iceet.cn/api"//@"http://huake258369.51vip.biz"//@"http://web.iceet.cn"//@"http://demo.iceet.cn"//@"http://192.168.1.48:8080"
+#endif
+
+/////////////////接口URL定义////////////////////
+#define LogInURL                [NSString stringWithFormat:@"%@/login",MainApiURL]
+#define DynamicCodeLogInURL     [NSString stringWithFormat:@"%@/loginCode",MainApiURL]
+#define ThirdLogInURL           [NSString stringWithFormat:@"%@/loginThird",MainApiURL]
+//发送短信，类型{1：注册，2：登录，3：找回密码，4:修改手机，5：注销车辆}
+#define SendURL                 [NSString stringWithFormat:@"%@/send",MainApiURL]
+#define MessageValidateURL      [NSString stringWithFormat:@"%@/validate",MainApiURL]
+#define FindPwdURL              [NSString stringWithFormat:@"%@/findPwd",MainApiURL]
+#define UserExistedURL          [NSString stringWithFormat:@"%@/isExisted",MainApiURL]
+#define RegisterURL             [NSString stringWithFormat:@"%@/register",MainApiURL]
+#define MyCarURL                [NSString stringWithFormat:@"%@/my/car",MainApiURL]
+#define UploadFileURL           [NSString stringWithFormat:@"%@/global/upload",MainApiURL]
+#define ChangeHeadImageURL      [NSString stringWithFormat:@"%@/my/head",MainApiURL]
+#define PersonalCenterURL       [NSString stringWithFormat:@"%@/my/personalCenter",MainApiURL]
+#define UserDetailURL           [NSString stringWithFormat:@"%@/my/ownerInit",MainApiURL]
+#define SaveUserDetailURL       [NSString stringWithFormat:@"%@/my/personalData",MainApiURL]
+#define JobRoleURL              [NSString stringWithFormat:@"%@/occpCds",MainApiURL]
+#define BaseDictionariesURL     [NSString stringWithFormat:@"%@/dictionaries",MainApiURL]
+#define AreasURL                [NSString stringWithFormat:@"%@/areas",MainApiURL]
+#define CheckOldTelURL          [NSString stringWithFormat:@"%@/my/tel",MainApiURL]
+#define SaveNewTelURL           [NSString stringWithFormat:@"%@/my/updateTel",MainApiURL]
+#define MyTasksURL              [NSString stringWithFormat:@"%@/task/lo/myTasks",MainApiURL]
+#define RequestStopTaskURL      [NSString stringWithFormat:@"%@/task/lo/utonomousCheck",MainApiURL]
+//爱车币账户
+#define AckCoinAccountURL       [NSString stringWithFormat:@"%@/currencyAccountAjax",MainApiURL]
+
+//油卡
+#define OilCardListsURL                     [NSString stringWithFormat:@"%@/cardoil/my/userIsDistributionOilCardAjax",MainApiURL]
+#define OilCardActiveURL                    [NSString stringWithFormat:@"%@/cardoil/my/userIsctivationOilCardAjax",MainApiURL]
+#define OilCardSecurityQuestionURL          [NSString stringWithFormat:@"%@/pullSecurityQuestionAjax",MainApiURL]
+#define OilCardReportLossURL                [NSString stringWithFormat:@"%@/cardoil/my/cardLoss",MainApiURL]
+#define SetSecurityQuestionURL              [NSString stringWithFormat:@"%@/setSecurityQuestionAjax",MainApiURL]
+#define ChargeOilCardURL                    [NSString stringWithFormat:@"%@/cardoil/my/userChargeOilCardAjax",MainApiURL]
+
+
+//广告任务
+#define AdvTasksURL             [NSString stringWithFormat:@"%@/adv/advLitAjax",MainApiURL]
+
+
+//task/lo/my/taskCheckInfo
+
+#endif /* ackUserPCH_pch */
